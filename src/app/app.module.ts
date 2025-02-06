@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http'; // Assurez-vous d'importer HttpClientModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp({"projectId":"finanwise-c4784","appId":"1:413102413365:web:342a9f7d3f77f54c61c37c","storageBucket":"finanwise-c4784.firebasestorage.app","apiKey":"AIzaSyAo3hE9ORY_Uga2NxXiXdG14FLPb_g9LVM","authDomain":"finanwise-c4784.firebaseapp.com","messagingSenderId":"413102413365"})),
     provideAuth(() => getAuth()),
