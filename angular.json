@@ -98,6 +98,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "finanwise:build:production",
+              "serveTarget": "finanwise:serve:production"
+            },
+            "development": {
+              "buildTarget": "finanwise:build:development",
+              "serveTarget": "finanwise:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

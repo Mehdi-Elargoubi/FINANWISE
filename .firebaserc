@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "finanwise-c4784": {
+      "hosting": {
+        "finanwise": [
+          "finanwise-c4784"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "finanwise-c4784"
+  }
+}
