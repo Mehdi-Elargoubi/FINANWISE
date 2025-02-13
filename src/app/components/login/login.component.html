@@ -15,8 +15,78 @@
 
 <h2>Connexion</h2>
 <form (ngSubmit)="login()">
-  <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
+  <input type="email" [formControl]="email" name="email" placeholder="Email" required />
   <input type="password" [(ngModel)]="password" name="password" placeholder="Mot de passe" required />
   <button type="submit">Se connecter</button>
 </form>
 <p>Pas encore inscrit ? <a routerLink="/register">Créer un compte</a></p>
+
+
+<div class="register-container">
+  <mat-card class="register-card">
+    <mat-card-header>
+      <!-- <mat-card-title>Welcome Back</mat-card-title> -->
+    </mat-card-header>
+    <mat-card-content>
+
+      <div class="divider">
+        <span></span>
+      </div>
+
+      <h1 class="signin-label">Se Connecter</h1>
+
+      <form (ngSubmit)="login()" #loginForm="ngForm">
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Enter your email</mat-label>
+          <input
+            matInput
+            placeholder="pat@example.com"
+            [formControl]="email"
+            (blur)="updateErrorMessage()"
+            required
+          />
+          <mat-error *ngIf="email.invalid">{{ errorMessage() }}</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide() ? 'password' : 'text'" [(ngModel)]="password" name="password" required autocomplete="current-password" />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="toggleHide($event)"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide()"
+          >
+            <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+  
+
+
+        <button mat-raised-button color="primary" class="login-button" type="submit">
+          Connexion
+        </button>
+
+        <div class="extra-options">
+          <a routerLink="/forgot-password" class="forgot-password">Forgot Password?</a>
+        </div>
+
+      </form>
+
+      <p class="register-link">
+        Don't have an account? <a routerLink="/register">Sign up</a>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,110 @@
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f4f6f8;
+  }
+  
+  .role-switch {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .role-switch button {
+    padding: 10px 20px;
+    border: none;
+    background: #e0e0e0;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .role-switch button.active {
+    background: #6c3cc9;
+    color: white;
+  }
+  
+  .register-card {
+    width: 400px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .title {
+    color: #6c3cc9;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .subtitle {
+    font-size: 14px;
+    color: gray;
+  }
+  
+  
+  .google-signin img {
+    width: 20px;
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .signin-label {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .extra-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .forgot-password {
+    color: #6c3cc9;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .login-button {
+    width: 100%;
+    background: #6c3cc9;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .register-link {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .register-link a {
+    color: #6c3cc9;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .example-container mat-form-field + mat-form-field {
+    margin-left: 8px;
+  }
+  
