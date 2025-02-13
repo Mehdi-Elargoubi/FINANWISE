@@ -11,6 +11,8 @@ import { User } from '../models/user.model';
 
 export class AuthService {
   private auth = inject(Auth);
+  private router = inject(Router);
+
   constructor() {}
   
   register(email: string, password: string): Promise<void> {
@@ -19,6 +21,7 @@ export class AuthService {
         console.log('Inscription success'
           //, userCredential.user
         );
+        this.router.navigate(['/dashboard']);
       })
       .catch((error) => {
         console.error('Inscription echouer erreur:', error);
@@ -30,6 +33,7 @@ export class AuthService {
     return signInWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
         console.log('Login success', userCredential.user);
+        this.router.navigate(['/dashboard']);
       })
       .catch((error) => {
         console.error('Erreur:', error);
@@ -41,6 +45,7 @@ export class AuthService {
     return signOut(this.auth)
       .then(() => {
         console.log('Logout success');
+        this.router.navigate(['/login']);
       })
       .catch((error) => {
         console.error('Erreur:', error);

@@ -1,3 +1,12 @@
-<p>dashboard works!</p>
 <p>Bienvenue sur le dashboard !</p>
+<p>Cette page est protégée et vous êtes authentifié pour y accéder.</p>
 <button (click)="logout()">Déconnexion</button>
+<button (click)="navigateToForm()">Ajouter des données</button>
+
+<div *ngFor="let item of data | async">
+    <p>Nom: {{ item.nom }}</p>
+    <p>Age: {{ item.age }}</p>
+    <p>Email: {{ item.email }}</p>
+    <div>---------------------------------</div>
+</div>
+
