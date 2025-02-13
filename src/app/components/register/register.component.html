@@ -1,9 +1,48 @@
-<p>register works!</p>
+<!-- <p>register works!</p>
 <h2>Inscription</h2>
 <form (ngSubmit)="register()">
   <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required />
   <input type="password" [(ngModel)]="password" name="password" placeholder="Mot de passe" required />
   <button type="submit">S'inscrire</button>
 </form>
-<p>Déjà inscrit ? <a routerLink="/login">Se connecter</a></p>
+<p>Déjà inscrit ? <a routerLink="/login">Se connecter</a></p> -->
 
+
+<div class="register-container">
+  <mat-card class="register-card">
+    <mat-card-header>
+      <mat-card-title class="center">Inscription</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="register()" #registerForm="ngForm">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [formControl]="email" name="email" placeholder="Email" required />
+          <mat-error *ngIf="email.invalid">{{ errorMessage() }}</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput [type]="hide() ? 'password' : 'text'" [(ngModel)]="password" name="password" placeholder="Mot de passe" required />
+          <button
+            mat-icon-button
+            matSuffix
+            (click)="toggleHide($event)"
+            [attr.aria-label]="'Hide password'"
+            [attr.aria-pressed]="hide()"
+          >
+            <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="login-button" type="submit" [disabled]="!registerForm.valid">
+          S'inscrire
+        </button>
+      </form>
+
+      <p class="register-link">
+        Déjà inscrit ? <a routerLink="/login">Se connecter</a>
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
