@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private api:ApiService){}
   public finnhub? : FinnhubStock;
   public ngOnInit(){
-    this.api.getFinannhubStock('TSLA').subscribe((data)=>{
+    this.api.getFinannhubStock('GOOG').subscribe((data)=>{
       this.finnhub=data;
     })
   }

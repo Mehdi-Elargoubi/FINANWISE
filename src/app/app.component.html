@@ -1,6 +1,13 @@
-<div *ngIf="finnhub">
+<!-- <div *ngIf="finnhub">
   <div>Prix actuel : {{ finnhub.c }}</div>
   <div>Prix le plus haut : {{ finnhub.h }}</div>
   <div>Prix le plus bas : {{ finnhub.l }}</div>
   <div>Prix d'ouverture : {{ finnhub.o }}</div>
-</div>
+</div> -->
+
+<nav>
+  <a routerLink="/login">Se connecter</a> | 
+  <a routerLink="/register">S'inscrire</a> | 
+  <!-- <a routerLink="/dashboard">Dashboard</a> -->
+</nav>
+<router-outlet></router-outlet>
