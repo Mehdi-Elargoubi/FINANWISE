@@ -1,7 +1,7 @@
 <p>firestore-form works!</p>
 <form (ngSubmit)="addData()">
     <label for="name">Nom:</label>
-    <input type="text" id="name" [(ngModel)]="name" name="name">
+    <input type="text" id="name" [formControl]="name" name="name">
   
     <label for="email">Email:</label>
     <input type="email" id="email" [(ngModel)]="email" name="email" required>
@@ -11,3 +11,34 @@
   
     <button type="submit">Ajouter</button>
 </form>
+
+
+<div class="firestore-form-container">
+    <mat-card class="firestore-form-card">
+      <mat-card-header>
+        <mat-card-title class="center">Ajouter des données</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form (ngSubmit)="addData()" #firestoreForm="ngForm">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Nom</mat-label>
+            <input matInput type="text" [formControl]="name" name="name" placeholder="Nom" required />
+          </mat-form-field>
+          
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [formControl]="email" name="email" placeholder="Email" required />
+          </mat-form-field>
+          
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Age</mat-label>
+            <input matInput type="number" [formControl]="age" name="age" placeholder="Age" required />
+          </mat-form-field>
+  
+          <button mat-raised-button color="primary" class="add-button" type="submit" [disabled]="!firestoreForm.valid">
+            Ajouter
+          </button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
