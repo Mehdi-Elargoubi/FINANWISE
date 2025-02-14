@@ -27,7 +27,7 @@ export class FirestoreFormComponent {
   addData() {
     const testdataCollection = collection(this.firestore, 'testData');
     const data = {
-      name: this.name.value,
+      nom: this.name.value,
       email: this.email.value,
       age: this.age.value
     };
