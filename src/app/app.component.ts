@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ApiService } from './api.service';
 import { FinnhubStock } from './model';
+import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +10,9 @@ import { FinnhubStock } from './model';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+
   title = 'finanwise';
   constructor(private api:ApiService){}
   public finnhub? : FinnhubStock;
@@ -16,5 +21,12 @@ export class AppComponent {
       this.finnhub=data;
     })
   }
+
+  logout() {
+    this.authService.logout().then(() => {
+      this.router.navigate(['/login']);
+    });
+  }
+
 
 }

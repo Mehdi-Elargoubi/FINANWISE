@@ -4,10 +4,20 @@
   <div>Prix le plus bas : {{ finnhub.l }}</div>
   <div>Prix d'ouverture : {{ finnhub.o }}</div>
 </div> -->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>FINANWISE</span>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/dashboard">Dashboard</button>
+    <button mat-button routerLink="/firestore-form">Ajouter des données</button>
+    <button mat-button (click)="logout()">Déconnexion</button>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-<nav>
+<router-outlet></router-outlet>
+
+<!-- <nav>
   <a routerLink="/login">Se connecter</a> | 
   <a routerLink="/register">S'inscrire</a> | 
-  <!-- <a routerLink="/dashboard">Dashboard</a> -->
-</nav>
-<router-outlet></router-outlet>
+  <a routerLink="/dashboard">Dashboard</a> 
+</nav> -->
