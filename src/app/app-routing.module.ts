@@ -5,6 +5,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 import { FirestoreFormComponent } from './components/firestore-form/firestore-form.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'firestore-form', component: FirestoreFormComponent, ...canActivate(redirectUnauthorizedToLogin) },
 
   { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
 ];
 
 @NgModule({

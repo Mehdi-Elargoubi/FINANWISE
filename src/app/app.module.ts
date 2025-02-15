@@ -27,6 +27,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { MatListModule } from '@angular/material/list';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    FirestoreFormComponent
+    FirestoreFormComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
