@@ -8,12 +8,17 @@
   <mat-toolbar-row>
     <span>FINANWISE</span>
     <span class="spacer"></span>
-    <button mat-button routerLink="/dashboard">Dashboard</button>
-    <button mat-button routerLink="/firestore-form">Ajouter des données</button>
-    <button mat-button (click)="logout()">Déconnexion</button>
+    <ng-container *ngIf="isLoggedIn(); else loggedOut">
+      <button mat-button routerLink="/dashboard">Dashboard</button>
+      <button mat-button routerLink="/firestore-form">Ajouter des données</button>
+      <button mat-button (click)="logout()">Déconnexion</button>
+    </ng-container>
+    <ng-template #loggedOut>
+      <button mat-button routerLink="/login">Se connecter</button>
+      <button mat-button routerLink="/register">S'inscrire</button>
+    </ng-template>
   </mat-toolbar-row>
 </mat-toolbar>
-
 <router-outlet></router-outlet>
 
 <!-- <nav>
