@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { Auth } from '@angular/fire/auth';
+import { Auth, onAuthStateChanged, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -12,20 +12,17 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  //imports: [MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
 export class LoginComponent {
   private auth = inject(Auth);
   private authService = inject(AuthService);
-  //email: string = '';
   email = new FormControl('', [Validators.required, Validators.email]);
   password: string = '';
   private router = inject(Router);
   errorMessage = signal('');
   hide = signal(true);
-
 
   constructor() {
     merge(this.email.statusChanges, this.email.valueChanges)
@@ -33,15 +30,30 @@ export class LoginComponent {
       .subscribe(() => this.updateErrorMessage());
   }
 
-  login() {
-    this.authService.login(this.email.value!, this.password)
-      .then(() => {
-        this.router.navigate(['/dashboard']);
+  ngOnInit(): void {
+    onAuthStateChanged(this.auth, (user) => {
+      if (user) {
+        if (user.emailVerified) {
+          console.log('Lien Email est vérifié (success)');
+        }
+      }
+    });
+  }
+
+  login(): void {
+    signInWithEmailAndPassword(this.auth, this.email.value!, this.password)
+      .then((userCredential) => {
+        if (userCredential.user.emailVerified) {
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.errorMessage.set('Vérifier l\' email avant de se connecter');
+          this.auth.signOut();
+        }
       })
       .catch((error) => {
-        console.error('Login error:', error);
+        console.error('Erreur lors de la connexion:', error);
+        this.errorMessage.set('Erreur lors de connexion - vérifier vos identifs ');
       });
-
   }
 
   updateErrorMessage(): void {
@@ -55,8 +67,8 @@ export class LoginComponent {
   }
 
   toggleHide(event: MouseEvent): void {
-    event.preventDefault(); // Empêche la soumission du formulaire
-    event.stopPropagation(); // Empêche la propagation de l'événement
+    event.preventDefault(); 
+    event.stopPropagation();
     this.hide.set(!this.hide());
   }
 

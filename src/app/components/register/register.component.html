@@ -43,6 +43,9 @@
       <p class="register-link">
         Déjà inscrit ? <a routerLink="/login">Se connecter</a>
       </p>
+
+      <p *ngIf="verificationMessage()">{{ verificationMessage() }}</p>
+
     </mat-card-content>
   </mat-card>
 </div>
