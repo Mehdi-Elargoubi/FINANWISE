@@ -3,6 +3,7 @@ import { addDoc, Firestore } from '@angular/fire/firestore';
 import { collection } from 'firebase/firestore';
 import { FirestoreService } from '../../services/firestore.service';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-firestore-form',
@@ -12,15 +13,12 @@ import { FormControl, Validators } from '@angular/forms';
 
 export class FirestoreFormComponent {
   private firestore = inject(Firestore);
-  // name: string = '';
-  // email: string = '';
-  // age: number | null = null;
+  private firestoreService = inject(FirestoreService);
   name = new FormControl('', [Validators.required]);
   email = new FormControl('', [Validators.required, Validators.email]);
   age = new FormControl('', [Validators.required, Validators.min(0)]);
 
-
-  private firestoreService = inject(FirestoreService);
+  private snackBar = inject(MatSnackBar);
 
   constructor() {}
 
@@ -34,6 +32,10 @@ export class FirestoreFormComponent {
 
     addDoc(testdataCollection, data)
       .then(() => {
+        this.snackBar.open('Données ajoutées avec succès', 'Fermer', {
+          duration: 5000,
+          verticalPosition: 'top',
+        });
         console.log('Ajouter avec success !');
         this.name.reset();
         this.email.reset();
@@ -41,6 +43,11 @@ export class FirestoreFormComponent {
       })
       .catch((error) => {
         console.error('Erreur : ', error);
+        this.snackBar.open('Erreur lors d ajout des données', 'Fermer', {
+          duration: 5000,
+          verticalPosition: 'top',
+        });
+
       });
   }
   

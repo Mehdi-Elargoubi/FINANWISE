@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,7 @@ export class LoginComponent {
   private router = inject(Router);
   errorMessage = signal('');
   hide = signal(true);
+  private snackBar = inject(MatSnackBar);
 
   constructor() {
     merge(this.email.statusChanges, this.email.valueChanges)
@@ -46,13 +48,19 @@ export class LoginComponent {
         if (userCredential.user.emailVerified) {
           this.router.navigate(['/dashboard']);
         } else {
-          this.errorMessage.set('Vérifier l\' email avant de se connecter');
+          this.snackBar.open('Vérifier l email avant de se connecter', 'Fermer', {
+            duration: 5000,
+            verticalPosition: 'top',
+          });
           this.auth.signOut();
         }
       })
       .catch((error) => {
         console.error('Erreur lors de la connexion:', error);
-        this.errorMessage.set('Erreur lors de connexion - vérifier vos identifs ');
+        this.snackBar.open('Erreur lors de connexion - vérifier vos infos ', 'Fermer', {
+          duration: 5000,
+          verticalPosition: 'top',
+        });
       });
   }
 

@@ -27,6 +27,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
@@ -61,6 +62,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MatSidenavModule,
     MatListModule,
     MatMenuModule,
+    MatSnackBarModule,
 
   ],
   providers: [

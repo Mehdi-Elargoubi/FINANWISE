@@ -5,6 +5,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { merge } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { createUserWithEmailAndPassword, sendEmailVerification, Auth } from '@angular/fire/auth';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -15,9 +16,9 @@ export class RegisterComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private auth = inject(Auth);
+  private snackBar = inject(MatSnackBar);
 
   email = new FormControl('', [Validators.required, Validators.email]);
-  //email: string = '';
   password: string = '';
   hide = signal(true);
   errorMessage = signal('');
@@ -29,39 +30,34 @@ export class RegisterComponent {
     .subscribe(() => this.updateErrorMessage());
   }
 
-  async register1() {
-    try {
-      await this.authService.register(this.email.value! , this.password);
-      this.router.navigate(['/dashboard']);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
   register(): void {
     createUserWithEmailAndPassword(this.auth, this.email.value!, this.password)
       .then((userCredential) => {
-        // Envoyer un email de vérification
         sendEmailVerification(userCredential.user)
           .then(() => {
             console.log('Email de vérification envoyé');
-            this.verificationMessage.set('Un email de vérification a été envoyé. Veuillez vérifier votre boîte de réception.');
-            // Déconnecter l'utilisateur immédiatement après l'envoi de l'email de vérification
+            this.snackBar.open('Un email de vérification a été envoyé - vérifier votre boîte de réception mail', 'Fermer', {
+              duration: 5000,
+              verticalPosition: 'top',
+            });
             this.auth.signOut();
           })
           .catch((error) => {
-            console.error('Erreur lors de l\'envoi de l\'email de vérification:', error);
+            console.error('Erreur d envoi de mail de vérification :', error);
+            this.snackBar.open('Erreur d envoi de mail de vérification - vérifier @ email', 'Fermer', {
+              duration: 5000,
+              verticalPosition: 'top',
+            });
           });
       })
       .catch((error) => {
-        console.error('Erreur lors de l\'inscription:', error);
+        console.error('Erreur d inscription:', error);
+        this.snackBar.open('Erreur d inscription - vérifier vos infos', 'Fermer', {
+          duration: 5000,
+          verticalPosition: 'top',
+        });
       });
   }
-
-
-
-
-
 
   updateErrorMessage(): void {
     if (this.email.hasError('required')) {
