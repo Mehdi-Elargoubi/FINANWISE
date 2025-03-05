@@ -66,9 +66,15 @@ export class LoginComponent {
 
   updateErrorMessage(): void {
     if (this.email.hasError('required')) {
-      this.errorMessage.set('You must enter a value');
+      this.snackBar.open('Vous devez saisir une valeur', 'Fermer', {
+        duration: 5000,
+        verticalPosition: 'top',
+      });
     } else if (this.email.hasError('email')) {
-      this.errorMessage.set('Not a valid email');
+      this.snackBar.open('Email non valide', 'Fermer', {
+        duration: 5000,
+        verticalPosition: 'top',
+      });
     } else {
       this.errorMessage.set('');
     }
