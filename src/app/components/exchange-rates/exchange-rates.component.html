@@ -1,0 +1,59 @@
+<div class="exchange-rates-container">
+    <h1>Taux de Change</h1>
+    <form [formGroup]="exchangeRateForm" (ngSubmit)="getExchangeRates()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Code de base</mat-label>
+        <mat-select formControlName="baseCode" required>
+          <mat-option *ngFor="let currency of currencies" [value]="currency">
+            <img [src]="getFlagUrl(currency)" alt="" width="24" height="18">
+            {{ currency }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="exchangeRateForm.get('baseCode')?.invalid">Code de base est requis</mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Taux de conversion</mat-label>
+        <mat-select formControlName="conversionRates" multiple required>
+          <mat-option *ngFor="let currency of currencies" [value]="currency">
+            <img [src]="getFlagUrl(currency)" alt="" width="24" height="18">
+            {{ currency }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="exchangeRateForm.get('conversionRates')?.invalid">Taux de conversion sont requis</mat-error>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit" [disabled]="exchangeRateForm.invalid">
+        Obtenir les taux de change
+      </button>
+    </form>
+  
+    <div *ngIf="filteredRates">
+      <h2>Taux de change pour {{ exchangeRateForm.get('baseCode')?.value }}</h2>
+      <table mat-table [dataSource]="filteredRates | keyvalue" class="mat-elevation-z8">
+        
+        <!-- Colonne Devise -->
+        <ng-container matColumnDef="currency">
+          <th mat-header-cell *matHeaderCellDef> Devise </th>
+          <td mat-cell *matCellDef="let element">
+            <img [src]="getFlagUrl(element.key)" alt="" width="24" height="18">
+            {{ element.key }}
+          </td>
+        </ng-container>
+  
+        <!-- Colonne Taux -->
+        <ng-container matColumnDef="rate">
+          <th mat-header-cell *matHeaderCellDef> Taux </th>
+          <td mat-cell *matCellDef="let element"> {{ element.value }} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="['currency', 'rate']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['currency', 'rate'];"></tr>
+      </table>
+    </div>
+  
+    <div *ngIf="!filteredRates">
+      <p>Chargement des taux de change...</p>
+    </div>
+  </div>
+  

@@ -32,6 +32,8 @@ import { CommonModule } from '@angular/common';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { StockRecommendationComponent } from './components/stock-recommendation/stock-recommendation.component';
 import { StockSearchComponent } from './components/stock-search/stock-search.component';
+import { ExchangeRatesComponent } from './components/exchange-rates/exchange-rates.component';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -45,7 +47,9 @@ import { StockSearchComponent } from './components/stock-search/stock-search.com
     FirestoreFormComponent,
     ForgotPasswordComponent,
     StockRecommendationComponent,
-    StockSearchComponent
+    StockSearchComponent,
+    ExchangeRatesComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -71,6 +75,8 @@ import { StockSearchComponent } from './components/stock-search/stock-search.com
     MatMenuModule,
     MatSnackBarModule,
     CommonModule,
+    MatSelectModule,
+    MatFormFieldModule
 
   ],
   providers: [
