@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'firestore-form', component: FirestoreFormComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'stockRecomendation', component: StockRecommendationComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'Stock-search', component: StockSearchComponent, ...canActivate(redirectUnauthorizedToLogin) },
-  { path: 'exchange-rates', component: ExchangeRatesComponent },
+  { path: 'exchange-rates', component: ExchangeRatesComponent, ...canActivate(redirectUnauthorizedToLogin)  },
 
 
   { path: '', redirectTo: '/login', pathMatch: 'full' },

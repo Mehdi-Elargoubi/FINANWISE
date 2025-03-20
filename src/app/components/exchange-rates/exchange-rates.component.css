@@ -1,0 +1,63 @@
+.exchange-rates-container {
+  padding: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.mat-form-field {
+  margin-bottom: 20px;
+}
+
+.mat-elevation-z8 {
+  margin-top: 20px;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+button {
+  margin-top: 20px;
+}
+
+.mat-select {
+  margin-right: 20px;
+}
+
+.mat-form-field + .mat-form-field {
+  margin-left: 20px;
+}
+
+/* Espacement général pour le conteneur */
+.exchange-rates-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espacement entre les éléments */
+}
+
+/* Espacement entre les champs de formulaire */
+.form-fields-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px; /* Espacement entre chaque champ */
+  align-items: center; /* Aligner les éléments verticalement */
+}
+
+/* Largeur fixe pour les sélecteurs */
+.form-field {
+  flex: 0 0 20%; /* Largeur fixe de 20% */
+}
+
+/* Espacement pour le bouton */
+.submit-button {
+  flex: 0 0 auto; /* Ne pas étirer le bouton */
+  margin-left: 20px; /* Espacement spécifique au bouton */
+  margin-bottom: 40px ;
+}
+
+/* Espacement entre la section de résultats et le formulaire */
+.rates-container {
+  margin-top: 20px;
+}
