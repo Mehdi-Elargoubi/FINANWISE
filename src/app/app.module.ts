@@ -28,7 +28,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { StockRecommendationComponent } from './components/stock-recommendation/stock-recommendation.component';
+import { StockSearchComponent } from './components/stock-search/stock-search.component';
+
+
 
 
 @NgModule({
@@ -38,7 +43,9 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     RegisterComponent,
     DashboardComponent,
     FirestoreFormComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    StockRecommendationComponent,
+    StockSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +70,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     MatListModule,
     MatMenuModule,
     MatSnackBarModule,
+    CommonModule,
 
   ],
   providers: [

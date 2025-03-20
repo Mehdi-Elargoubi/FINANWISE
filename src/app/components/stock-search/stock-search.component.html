@@ -1,0 +1,31 @@
+<!-- stock-search.component.html -->
+<div class="stock-search-container">
+    <form (ngSubmit)="onSearch()" class="search-form">
+      <mat-form-field appearance="fill">
+        <mat-label>ex : AAP</mat-label>
+        <input matInput [(ngModel)]="query" name="query" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">Rechercher</button>
+    </form>
+  
+    <div *ngIf="isLoading">Chargement...</div>
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+  
+    <table *ngIf="stocks.length > 0">
+      <thead>
+        <tr>
+          <th  > Symbole </th>
+          <th  > Nom Complet </th>
+          <th  > Bourse </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stock of stocks">
+          <td  >{{ stock.symbol }}</td>
+          <td >{{ stock.name }}</td>
+          <td>{{ stock.stockExchange }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

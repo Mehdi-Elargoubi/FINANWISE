@@ -1,15 +1,117 @@
+/* Conteneur global */
+.app-container {
+  height: 100vh;
+  display: flex;
+}
+
+/* Le conteneur du sidebar et du contenu principal */
+.sidenav-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+}
+
+/* Sidebar */
+.sidenav {
+  width: 250px;
+  background-color: #85d4ff;
+  color: #090808;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo dans la sidebar */
+.sidebar-header {
+  text-align: start;
+  padding: 10px;
+}
+
+.sidebar-logo {
+  width: 100%;
+  max-width: 120px;
+  height: auto;
+}
+
+/* Liste de navigation */
+mat-nav-list {
+  flex-grow: 1;
+  padding: 0;
+}
+
+mat-list-item {
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+mat-list-item mat-icon {
+  margin-right: 10px;
+}
+
+mat-list-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Contenu principal qui prend toute la largeur */
+mat-sidenav-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  min-width: 0; /* Empêche le contenu de se rétrécir */
+}
+
+/* Toolbar */
+.mat-toolbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.toolbar-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
 .spacer {
-    flex: 1 1 auto;
+  flex: 1;
+}
+
+/* La zone dynamique prend tout l'espace disponible */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Mobile : Sidebar cachée par défaut */
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
   }
-  
-  mat-toolbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
+
+  .sidenav {
+    width: auto;
   }
-  
-  router-outlet + * {
-    margin-top: 64px; /* Hauteur de la barre de navigation */
-  }
+}
+
+
+/* Ajuster l'alignement de l'icône et du texte dans mat-list-item */
+.mat-list-item {
+  display: flex;
+  align-items: center;  /* Centre verticalement l'icône et le texte */
+}
+
+.mat-icon {
+  margin-right: 8px; /* Espace entre l'icône et le texte */
+}
+
+.active-link {
+  background-color: hsl(210, 96%, 72%); /* Bleu adapté au thème finance */
+  color: white; /* Texte en blanc pour bien contraster */
+  border-radius: 5px; /* Arrondi léger pour l'esthétique */
+}

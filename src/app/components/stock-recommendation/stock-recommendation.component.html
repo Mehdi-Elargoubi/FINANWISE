@@ -1,0 +1,41 @@
+<div class="stock-recommendation-container">
+  <!-- Formulaire -->
+  <form (ngSubmit)="fetchRecommendations()" [formGroup]="recommendationForm" class="recommendation-form">
+    <h2>🔍 Trouver des Recommandations</h2>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Symbole</mat-label>
+      <input matInput formControlName="symbol" placeholder="Ex: AAPL" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Budget (€)</mat-label>
+      <input matInput formControlName="budget" type="number" placeholder="Ex: 5000" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" [disabled]="recommendationForm.invalid" class="submit-button">
+      🔎 Rechercher
+    </button>
+  </form>
+
+  <!-- Affichage des recommandations -->
+  <div *ngIf="recommendations.length > 0">
+    <h3>📊 Recommandations pour {{recommendations[0].symbol}}</h3>
+    
+    <div class="recommendation-container">
+      <mat-card class="stock-card">
+        <mat-card-header>
+          <mat-card-title>Mise à jour : {{ recommendations[0].period }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+         <!--  <p><strong>💹 Strong Buy :</strong> {{ recommendation.strongBuy }}</p>-->
+          <p><strong>📈 Buy :</strong> {{ recommendations[0].buy }}</p>
+          <p><strong>🤝 Hold :</strong> {{ recommendations[0].hold }}</p>
+          <p><strong>📉 Sell :</strong> {{ recommendations[0].sell }}</p>
+          <p><strong>{{ decision }}</strong> </p>
+          <!--<p><strong>⛔ Strong Sell :</strong> {{ recommendation.strongSell }}</p>-->
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

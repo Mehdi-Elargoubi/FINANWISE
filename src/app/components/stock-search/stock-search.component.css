@@ -1,0 +1,42 @@
+/* stock-search.component.css */
+.stock-search-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  mat-form-field{
+    height: 70px;
+  }
+  .search-form {
+    margin-bottom: 20px;
+  }
+  
+  button {
+    width: 100%;
+  }
+  
+  .stock-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .stock-table th, .stock-table td {
+    padding: 12px;
+    text-align: center;
+  }
+  
+  .stock-table th {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .stock-table td {
+    background-color: #f8f9fa;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+  }
+  

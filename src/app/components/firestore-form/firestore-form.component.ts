@@ -15,10 +15,10 @@ export class FirestoreFormComponent {
   private firestore = inject(Firestore);
   private firestoreService = inject(FirestoreService);
   name = new FormControl('', [Validators.required]);
-  email = new FormControl('', [Validators.required, Validators.email]);
+  email = new FormControl('', [Validators.required]);//, Validators.email
   age = new FormControl('', [Validators.required, Validators.min(0)]);
 
-  private snackBar = inject(MatSnackBar);
+  private snackBar = inject(MatSnackBar); 
 
   constructor() {}
 
