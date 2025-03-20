@@ -32,10 +32,10 @@
 
   <div *ngIf="filteredRates" class="rates-container">
     <h2>Taux de change pour {{ exchangeRateForm.get('baseCode')?.value }}</h2>
-    <table mat-table [dataSource]="filteredRates | keyvalue" class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
       <!-- Colonne Devise -->
       <ng-container matColumnDef="currency">
-        <th mat-header-cell *matHeaderCellDef> Devise </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Devise </th>
         <td mat-cell *matCellDef="let element">
           <img [src]="getFlagUrl(element.key)" alt="" width="24" height="18">
           {{ element.key }}
@@ -44,12 +44,13 @@
 
       <!-- Colonne Taux -->
       <ng-container matColumnDef="rate">
-        <th mat-header-cell *matHeaderCellDef> Taux </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Taux </th>
         <td mat-cell *matCellDef="let element"> {{ element.value }} </td>
       </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="['currency', 'rate']"></tr>
-      <tr mat-row *matRowDef="let row; columns: ['currency', 'rate'];"></tr>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
 </div>

@@ -33,6 +33,7 @@ import { StockRecommendationComponent } from './components/stock-recommendation/
 import { StockSearchComponent } from './components/stock-search/stock-search.component';
 import { ExchangeRatesComponent } from './components/exchange-rates/exchange-rates.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -75,6 +76,7 @@ import { MatSelectModule } from '@angular/material/select';
     CommonModule,
     MatSelectModule,
     MatCardModule,
+    MatSortModule
     
     
 
