@@ -8,6 +8,7 @@ import { FirestoreFormComponent } from './components/firestore-form/firestore-fo
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { StockRecommendationComponent } from './components/stock-recommendation/stock-recommendation.component';
 import { StockSearchComponent } from './components/stock-search/stock-search.component';
+import { ExchangeRatesComponent } from './components/exchange-rates/exchange-rates.component';
 
 
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
@@ -18,8 +19,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent, ...canActivate(redirectLoggedInToDashboard) },
   { path: 'dashboard', component: DashboardComponent,...canActivate(redirectUnauthorizedToLogin) },
   { path: 'firestore-form', component: FirestoreFormComponent, ...canActivate(redirectUnauthorizedToLogin) },
-  { path: 'stockRecomendation', component: StockRecommendationComponent},
-  { path: 'Stock-search', component: StockSearchComponent},
+  { path: 'stockRecomendation', component: StockRecommendationComponent, ...canActivate(redirectUnauthorizedToLogin) },
+  { path: 'Stock-search', component: StockSearchComponent, ...canActivate(redirectUnauthorizedToLogin) },
+
 
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'forgot-password', component: ForgotPasswordComponent },
