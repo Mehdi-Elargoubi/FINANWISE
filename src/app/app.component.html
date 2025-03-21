@@ -20,18 +20,20 @@
           <mat-icon>dashboard</mat-icon>
           <span>Dashboard</span>
         </a>
-        <a mat-list-item routerLink="/stockRecomendation" routerLinkActive="active-link">
-          <mat-icon>trending_up</mat-icon>
-          <span>Recommandations</span>
-        </a>
-        <a mat-list-item routerLink="/Stock-search" routerLinkActive="active-link">
-          <mat-icon>help</mat-icon>
-          <span>Symboles</span>
-        </a>
-        <a mat-list-item routerLink="/exchange-rates" routerLinkActive="active-link">
-          <mat-icon>currency_exchange</mat-icon>
-          <span>Taux de Change</span>
-        </a>
+        <ng-container *ngIf="isLoggedIn()">
+          <a mat-list-item routerLink="/stockRecomendation" routerLinkActive="active-link">
+            <mat-icon>trending_up</mat-icon>
+            <span>Recommandations</span>
+          </a>
+          <a mat-list-item routerLink="/Stock-search" routerLinkActive="active-link">
+            <mat-icon>help</mat-icon>
+            <span>Symboles</span>
+          </a>
+          <a mat-list-item routerLink="/exchange-rates" routerLinkActive="active-link">
+            <mat-icon>currency_exchange</mat-icon>
+            <span>Taux de Change</span>
+          </a>
+        </ng-container>
       </mat-nav-list>
     </mat-sidenav>
 

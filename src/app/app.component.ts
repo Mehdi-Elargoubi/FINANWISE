@@ -9,6 +9,7 @@ import { Auth, onAuthStateChanged } from '@angular/fire/auth';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  
   /** Indique si l'écran est en mode mobile (true si < 768px) */
   isMobile: boolean = window.innerWidth < 768;
 
