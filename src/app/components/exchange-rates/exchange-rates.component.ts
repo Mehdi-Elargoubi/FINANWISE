@@ -17,6 +17,9 @@ export class ExchangeRatesComponent implements OnInit {
   currencies: string[] = [];
   displayedColumns: string[] = ['currency', 'rate'];
   dataSource!: MatTableDataSource<any>;
+  matrixBaseCodes: string[] = [];
+  matrixData: any[] = [];
+  matrixBaseCodesControl = new FormControl([], [Validators.required]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -62,6 +65,34 @@ export class ExchangeRatesComponent implements OnInit {
         console.error('Erreur lors de la récupération des taux de change:', error);
       }
     );
+  }
+
+  generateMatrix(): void {
+    this.matrixBaseCodes = this.matrixBaseCodesControl.value || [];
+    this.matrixData = this.generateMatrixData(this.matrixBaseCodes);
+  }
+
+  generateMatrixData(baseCodes: string[]): any[] {
+    return baseCodes.map((baseCode) => {
+      const row: any = { baseCode: baseCode };
+      baseCodes.forEach((conversionRate) => {
+        row[conversionRate] = this.calculateConversionRate(baseCode, conversionRate);
+      });
+      return row;
+    });
+  }
+
+  calculateConversionRate(baseCode: string, conversionRate: string): number {
+    if (baseCode === conversionRate) {
+      return 1;
+    }
+    const baseToUsd = this.exchangeRates[baseCode];
+    const conversionToUsd = this.exchangeRates[conversionRate];
+    return conversionToUsd / baseToUsd;
+  }
+
+  getMatrixValue(baseCode: string, conversionRate: string): number {
+    return this.matrixData.find(row => row.baseCode === baseCode)[conversionRate];
   }
 
   applyFilter(filterValue: string): void {

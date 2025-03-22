@@ -54,10 +54,30 @@ button {
 .submit-button {
   flex: 0 0 auto; /* Ne pas étirer le bouton */
   margin-left: 20px; /* Espacement spécifique au bouton */
-  margin-bottom: 40px ;
+  margin-bottom: 40px;
 }
 
 /* Espacement entre la section de résultats et le formulaire */
 .rates-container {
   margin-top: 20px;
+}
+
+/* Styles pour la matrice carrée */
+.matrix-container {
+  margin-top: 20px;
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.matrix-table th, .matrix-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.matrix-table th {
+  background-color: #f2f2f2;
 }

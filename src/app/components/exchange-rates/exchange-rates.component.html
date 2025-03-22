@@ -53,4 +53,62 @@
     </table>
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Sélection des codes de base pour la matrice carrée -->
+  <div class="matrix-selection-container">
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Codes de base pour la matrice</mat-label>
+      <mat-select [formControl]="matrixBaseCodesControl" multiple required>
+        <mat-option *ngFor="let currency of currencies" [value]="currency">
+          <img [src]="getFlagUrl(currency)" alt="" width="24" height="18">
+          {{ currency }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="matrixBaseCodesControl.invalid">Codes de base sont requis</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="generateMatrix()" [disabled]="matrixBaseCodesControl.invalid" class="submit-button">
+      Générer la matrice
+    </button>
+  </div>
+
+  <!-- Matrice carrée des taux de change -->
+  <div *ngIf="matrixData.length > 0" class="matrix-container">
+    <h2>Matrice des Taux de Change</h2>
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th *ngFor="let baseCode of matrixBaseCodes">
+            <img [src]="getFlagUrl(baseCode)" alt="" width="24" height="18">
+{{ baseCode }}
+</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let baseCode of matrixBaseCodes">
+          <th>
+            <img [src]="getFlagUrl(baseCode)" alt="" width="24" height="18">
+{{ baseCode }}
+</th>
+          <td *ngFor="let conversionRate of matrixBaseCodes">{{ getMatrixValue(baseCode, conversionRate) }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+
