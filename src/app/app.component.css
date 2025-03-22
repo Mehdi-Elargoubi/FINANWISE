@@ -14,7 +14,7 @@
 /* Sidebar */
 .sidenav {
   width: 250px;
-  background-color: #85d4ff;
+  background-color: #3f51b5;
   color: #090808;
   display: flex;
   flex-direction: column;
@@ -115,3 +115,21 @@ mat-sidenav-content {
   color: white; /* Texte en blanc pour bien contraster */
   border-radius: 5px; /* Arrondi léger pour l'esthétique */
 }
+
+
+
+/* .green-gradient-toolbar {
+  background: linear-gradient(45deg, #00FF00, #00AA00);
+  color: black;
+} */
+
+/* .green-gradient-toolbar {
+  background: #64FFDA;
+  color: black;
+}
+
+.green-gradient-sidebar {
+  background-color: #64FFDA; 
+  color: white;
+
+} */

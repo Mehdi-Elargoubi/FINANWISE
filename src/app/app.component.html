@@ -1,13 +1,15 @@
 <div class="app-container">
   <!-- Conteneur principal -->
-  <mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-container class="sidenav-container" color>
     
     <!-- Sidebar (fixe sur PC, cachée sur mobile) -->
     <mat-sidenav 
       #sidenav 
       [mode]="isMobile ? 'over' : 'side'" 
-      [opened]="!isMobile" 
-      class="sidenav">
+      [opened]="!isMobile"
+      class="sidenav green-gradient-sidebar"
+      color="primary"
+      >
       
       <!-- Logo Sidebar -->
       <div class="sidebar-header">
@@ -41,7 +43,7 @@
     <mat-sidenav-content class="content">
       
       <!-- Toolbar -->
-      <mat-toolbar>
+      <mat-toolbar color="primary" class="green-gradient-toolbar">
         <mat-toolbar-row>
           <!-- Bouton menu pour mobile -->
           <button mat-icon-button (click)="sidenav.toggle()" class="menu-button" *ngIf="isMobile">
