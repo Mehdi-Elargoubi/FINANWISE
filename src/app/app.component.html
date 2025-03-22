@@ -3,6 +3,7 @@
   <mat-sidenav-container class="sidenav-container">
     
     <!-- Sidebar (fixe sur PC, cachée sur mobile) -->
+     
     <mat-sidenav 
       #sidenav 
       [mode]="isMobile ? 'over' : 'side'" 
@@ -32,6 +33,10 @@
           <a mat-list-item routerLink="/exchange-rates" routerLinkActive="active-link">
             <mat-icon>currency_exchange</mat-icon>
             <span>Taux de Change</span>
+          </a>
+          <a mat-list-item routerLink="/stock-history" routerLinkActive="active-link">
+            <mat-icon>history</mat-icon>
+            <span>Historique</span>
           </a>
         </ng-container>
       </mat-nav-list>

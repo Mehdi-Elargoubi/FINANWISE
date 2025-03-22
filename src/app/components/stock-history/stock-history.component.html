@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title>Historique des Actions</mat-card-title>
+    <form [formGroup]="stockForm" (ngSubmit)="fetchStockData()">
+      <mat-form-field>
+        <mat-label>Symbole de l'action</mat-label>
+        <input matInput formControlName="symbol" placeholder="Ex: AAPL, TSLA">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Rechercher</button>
+    </form>
+    
+    <canvas id="stockChart"></canvas>
+    <p>
+        <strong>📊 Explication du graphique :</strong>  
+        L'axe **X** représente les **dates** des 10 derniers jours de bourse.  
+        L'axe **Y** représente le **prix de clôture** de l'action pour chaque date.
+      </p>
+  </mat-card>
+  

@@ -34,6 +34,8 @@ import { StockSearchComponent } from './components/stock-search/stock-search.com
 import { ExchangeRatesComponent } from './components/exchange-rates/exchange-rates.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
+import { StockHistoryComponent } from './components/stock-history/stock-history.component';
+
 
 
 
@@ -49,6 +51,7 @@ import { MatSortModule } from '@angular/material/sort';
     StockRecommendationComponent,
     StockSearchComponent,
     ExchangeRatesComponent,
+    StockHistoryComponent,
 
   ],
   imports: [
