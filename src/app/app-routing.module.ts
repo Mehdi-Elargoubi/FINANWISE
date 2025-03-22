@@ -9,6 +9,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { StockRecommendationComponent } from './components/stock-recommendation/stock-recommendation.component';
 import { StockSearchComponent } from './components/stock-search/stock-search.component';
 import { ExchangeRatesComponent } from './components/exchange-rates/exchange-rates.component';
+import { StockHistoryComponent } from './components/stock-history/stock-history.component';
 
 
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'stockRecomendation', component: StockRecommendationComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'Stock-search', component: StockSearchComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'exchange-rates', component: ExchangeRatesComponent, ...canActivate(redirectUnauthorizedToLogin)  },
+  { path: 'stock-history', component: StockHistoryComponent, ...canActivate(redirectUnauthorizedToLogin)  },
 
 
   { path: '', redirectTo: '/login', pathMatch: 'full' },
