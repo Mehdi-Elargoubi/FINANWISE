@@ -1,10 +1,10 @@
 <div class="exchange-rates-container">
-  <h1 class="styled-title">Taux de Change</h1>
+  <h1 class="styled-title">Conversion Devises</h1>
 
   <!-- Card pour les taux de change et les résultats -->
   <mat-card>
     <mat-card-header>
-      <mat-card-title class="styled-subtitle">Obtenir les Taux de Change</mat-card-title>
+      <mat-card-title class="styled-subtitle">Taux de change en direct</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <form [formGroup]="exchangeRateForm" (ngSubmit)="getExchangeRates()" class="form-container">
@@ -66,7 +66,7 @@
   <!-- Card pour la sélection des codes de base et la matrice -->
   <mat-card>
     <mat-card-header>
-      <mat-card-title class="styled-subtitle">Sélection des Codes de Base pour la Matrice</mat-card-title>
+      <mat-card-title class="styled-subtitle">Sélection des Devises pour la Matrice</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <div class="matrix-selection-container">
@@ -88,26 +88,33 @@
     <mat-divider></mat-divider>
     <mat-card-content *ngIf="matrixData.length > 0" class="matrix-container">
       <mat-card-title class="styled-subtitle">Matrice des Taux de Change</mat-card-title>
-      <table class="matrix-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th *ngFor="let baseCode of matrixBaseCodes">
-              <img [src]="getFlagUrl(baseCode)" alt="" width="24" height="18">
-              {{ baseCode }}
+      <table mat-table [dataSource]="matrixDataSource" matSort class="mat-elevation-z8">
+        <!-- Base Currency Column -->
+        <ng-container matColumnDef="matrixBaseCode">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Devise </th>
+          <td mat-cell *matCellDef="let element">
+            <img [src]="getFlagUrl(element.baseCode)" alt="" width="24" height="18">
+            {{ element.baseCode }}
+          </td>
+        </ng-container>
+
+        <!-- Dynamic Currency Columns -->
+        <ng-container *ngFor="let currency of matrixBaseCodes" [matColumnDef]="currency">
+          <ng-container *ngIf="currency">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>
+              <img [src]="getFlagUrl(currency)" alt="" width="24" height="18">
+              {{ currency }}
             </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let baseCode of matrixBaseCodes">
-            <th>
-              <img [src]="getFlagUrl(baseCode)" alt="" width="24" height="18">
-              {{ baseCode }}
-            </th>
-            <td *ngFor="let conversionRate of matrixBaseCodes">{{ getMatrixValue(baseCode, conversionRate) }}</td>
-          </tr>
-        </tbody>
+            <td mat-cell *matCellDef="let element">
+              {{ element[currency] | number:'1.2-4' }}
+            </td>
+          </ng-container>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="matrixDisplayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: matrixDisplayedColumns;"></tr>
       </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </mat-card-content>
   </mat-card>
 </div>

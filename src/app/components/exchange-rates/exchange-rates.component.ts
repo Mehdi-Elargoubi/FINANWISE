@@ -8,7 +8,7 @@ import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-exchange-rates',
   templateUrl: './exchange-rates.component.html',
-  styleUrl: './exchange-rates.component.css'
+  styleUrls: ['./exchange-rates.component.css']
 })
 export class ExchangeRatesComponent implements OnInit {
   exchangeRates: any;
@@ -20,8 +20,9 @@ export class ExchangeRatesComponent implements OnInit {
   matrixBaseCodes: string[] = [];
   matrixData: any[] = [];
   matrixBaseCodesControl = new FormControl([], [Validators.required]);
+  matrixDataSource!: MatTableDataSource<any>;
+  matrixDisplayedColumns: string[] = ['matrixBaseCode'];
 
-  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -38,7 +39,6 @@ export class ExchangeRatesComponent implements OnInit {
       (data) => {
         this.exchangeRates = data.conversion_rates;
         this.currencies = Object.keys(this.exchangeRates);
-        
       },
       (error) => {
         console.error('Erreur lors de la récupération des taux de change:', error);
@@ -72,6 +72,10 @@ export class ExchangeRatesComponent implements OnInit {
   generateMatrix(): void {
     this.matrixBaseCodes = this.matrixBaseCodesControl.value || [];
     this.matrixData = this.generateMatrixData(this.matrixBaseCodes);
+    this.matrixDataSource = new MatTableDataSource(this.matrixData);
+    this.matrixDataSource.paginator = this.paginator;
+    this.matrixDataSource.sort = this.sort;
+    this.matrixDisplayedColumns = ['matrixBaseCode', ...this.matrixBaseCodes];
   }
 
   generateMatrixData(baseCodes: string[]): any[] {
