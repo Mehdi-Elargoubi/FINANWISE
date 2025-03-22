@@ -21,6 +21,7 @@ export class ExchangeRatesComponent implements OnInit {
   matrixData: any[] = [];
   matrixBaseCodesControl = new FormControl([], [Validators.required]);
 
+  
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -37,6 +38,7 @@ export class ExchangeRatesComponent implements OnInit {
       (data) => {
         this.exchangeRates = data.conversion_rates;
         this.currencies = Object.keys(this.exchangeRates);
+        
       },
       (error) => {
         console.error('Erreur lors de la récupération des taux de change:', error);

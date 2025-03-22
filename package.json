@@ -21,11 +21,9 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
-<<<<<<< HEAD
+    "@types/chart.js": "^2.9.41",
     "bootstrap": "^5.3.3",
-=======
     "chart.js": "^4.4.8",
->>>>>>> c59bed45be80f3cae67cce27c80c13dfa2560662
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
