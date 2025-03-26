@@ -1,42 +1,116 @@
-/* stock-search.component.css */
+
 .stock-search-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  mat-form-field{
-    height: 70px;
-  }
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: white;
+}
+
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.search-input {
+  width: 100%;
+}
+
+mat-form-field {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  padding: 8px 12px;
+  color: white;
+}
+
+
+.modern-search-button {
+  width: 100%;
+  background: linear-gradient(to right, #1e88e5, #42a5f5);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(66, 165, 245, 0.4);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.modern-search-button:hover {
+  background: linear-gradient(to right, #1565c0, #1e88e5);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(66, 165, 245, 0.6);
+}
+
+.modern-search-button:disabled {
+  background: rgba(100, 100, 100, 0.3);
+  cursor: not-allowed;
+}
+
+
+.loading {
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: #ff6b6b;
+  text-align: center;
+  margin-top: 12px;
+}
+
+/* 📊 Résultats */
+.results-container {
+  margin-top: 30px;
+  overflow-x: auto;
+}
+
+/* 📋 Tableau */
+.stock-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(6px);
+}
+
+.stock-table th,
+.stock-table td {
+  padding: 14px 16px;
+  text-align: left;
+}
+
+.stock-table th {
+  background-color: #2a2a2a;
+  color: #64b5f6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stock-table td {
+  background-color: #1e1e1e;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stock-table tr:hover td {
+  background-color: #2a2a2a;
+  transition: background-color 0.2s ease-in-out;
+}
+
+
+@media (max-width: 768px) {
   .search-form {
-    margin-bottom: 20px;
+    flex-direction: column;
   }
-  
-  button {
-    width: 100%;
-  }
-  
-  .stock-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-  }
-  
-  .stock-table th, .stock-table td {
-    padding: 12px;
-    text-align: center;
-  }
-  
-  .stock-table th {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .stock-table td {
-    background-color: #f8f9fa;
-  }
-  
-  .error-message {
-    color: red;
-    text-align: center;
-  }
-  
+}

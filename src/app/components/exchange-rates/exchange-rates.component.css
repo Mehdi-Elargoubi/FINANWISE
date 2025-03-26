@@ -1,115 +1,193 @@
+
+body {
+  background-color: #121212;
+  color: white;
+}
+
 .exchange-rates-container {
-  padding: 20px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-}
-
-.full-width {
-  width: 100%;
-}
-
-.mat-form-field {
-  margin-bottom: 20px;
-}
-
-.mat-elevation-z8 {
-  margin-top: 20px;
-}
-
-h1, h2 {
-  margin-bottom: 10px;
-}
-
-button {
-  margin-top: 20px;
-}
-
-.mat-select {
-  margin-right: 20px;
-}
-
-.mat-form-field + .mat-form-field {
-  margin-left: 20px;
-}
-
-/* Espacement général pour le conteneur */
-.exchange-rates-container {
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Espacement entre les éléments */
+  gap: 32px;
 }
 
-/* Espacement entre les champs de formulaire */
-.form-fields-container {
+.styled-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2cb872;
+  text-align: center;
+  margin-bottom: 16px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.styled-subtitle {
+  font-size: 1.4rem;
+  color: #64b5f6;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  text-align: left;
+}
+
+
+mat-card {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  padding: 16px;
+  color: white;
+}
+
+mat-card-content {
+  background-color: transparent;
+  padding-top: 16px;
+}
+
+
+.form-fields-container,
+.matrix-selection-container {
   display: flex;
-  flex-direction: row;
-  gap: 20px; /* Espacement entre chaque champ */
-  align-items: center; /* Aligner les éléments verticalement */
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-/* Largeur fixe pour les sélecteurs */
 .form-field {
-  flex: 0 0 20%; /* Largeur fixe de 20% */
+  flex: 1 1 200px;
+  min-width: 200px;
 }
 
-/* Espacement pour le bouton */
+.mat-form-field-infix {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 10px;
+  color: white;
+}
+
+.mat-form-field-label {
+  color: #90caf9 !important;
+}
+
+.mat-select-value-text {
+  color: white !important;
+}
+
+
 .submit-button {
-  flex: 0 0 auto; /* Ne pas étirer le bouton */
-  margin-left: 20px; /* Espacement spécifique au bouton */
-  margin-bottom: 40px;
+  background: linear-gradient(to right, #1e88e5, #42a5f5);
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(66, 165, 245, 0.4);
 }
 
-/* Espacement entre la section de résultats et le formulaire */
-.rates-container {
-  margin-top: 20px;
+.submit-button:hover {
+  background: linear-gradient(to right, #1565c0, #1e88e5);
 }
 
-/* Styles pour la matrice carrée */
+
+table.mat-table {
+  width: 100%;
+  background-color: #1e1e1e !important;
+  border-radius: 12px;
+  overflow: hidden;
+  color: white;
+  box-shadow: none !important; 
+}
+
+.mat-header-row {
+  background-color: #2a2a2a !important;
+}
+
+.mat-header-cell {
+  color: #64b5f6 !important;
+  font-weight: bold;
+  text-align: center;
+  font-size: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mat-row {
+  background-color: #1e1e1e !important;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.mat-cell {
+  color: white !important;
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mat-row:hover {
+  background-color: #2a2a2a !important;
+}
+
+.mat-cell img,
+.mat-header-cell img {
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+
+.mat-paginator {
+  background-color: transparent;
+  color: white;
+}
+
+.mat-paginator .mat-button {
+  color: white;
+}
+
+
 .matrix-container {
   margin-top: 20px;
+  overflow-x: auto;
 }
 
 .matrix-table {
   width: 100%;
   border-collapse: collapse;
+  background: #1e1e1e;
+  color: white;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-.matrix-table th, .matrix-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
+.matrix-table th,
+.matrix-table td {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px;
   text-align: center;
+  color: white;
 }
 
 .matrix-table th {
-  background-color: #f2f2f2;
-}
-
-/* Styles pour le titre */
-.styled-title {
-  font-size: 2.5rem;
+  background-color: #2a2a2a;
   font-weight: bold;
-  color: #3f51b5;
-  text-align: center;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  font-family: 'Lucida Handwriting', cursive; /* Changer la police */
 }
 
-/* Styles pour les sous-titres */
-.styled-subtitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #3f51b5;
-  text-align: left;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-  font-family: 'Lucida Console', monospace; /* Changer la police */
+.matrix-table img {
+  vertical-align: middle;
+  margin-right: 6px;
 }
 
-/* Espacement entre les cartes */
-.exchange-card {
-  margin-bottom: 20px; /* Ajouter un espace entre les cartes */
-}
+/* ===== 📱 Responsive ===== */
+@media (max-width: 768px) {
+  .form-fields-container,
+  .matrix-selection-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
-.matrix-card {
-  margin-top: 20px; /* Ajouter un espace entre les cartes */
+  .submit-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .form-field {
+    width: 100%;
+  }
 }

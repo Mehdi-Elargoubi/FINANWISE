@@ -1,135 +1,128 @@
-/* Conteneur global */
-.app-container {
-  height: 100vh;
-  display: flex;
-}
 
-/* Le conteneur du sidebar et du contenu principal */
-.sidenav-container {
-  height: 100vh;
-  width: 100%;
-  display: flex;
-}
-
-/* Sidebar */
-.sidenav {
-  width: 250px;
-  background-color: #3f51b5;
-  color: #090808;
-  display: flex;
-  flex-direction: column;
-}
-
-/* Logo dans la sidebar */
-.sidebar-header {
-  text-align: start;
-  padding: 10px;
-}
-
-.sidebar-logo {
-  width: 100%;
-  max-width: 120px;
-  height: auto;
-}
-
-/* Liste de navigation */
-mat-nav-list {
-  flex-grow: 1;
+html, body {
+  height: 100%;
+  margin: 0;
   padding: 0;
 }
 
-mat-list-item {
-  color: white;
-  display: flex;
-  align-items: center;
-  padding: 15px;
-}
 
-mat-list-item mat-icon {
-  margin-right: 10px;
-}
-
-mat-list-item:hover {
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* Contenu principal qui prend toute la largeur */
-mat-sidenav-content {
+.app-container {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
-  width: 100%;
-  min-width: 0; /* Empêche le contenu de se rétrécir */
+  background: url('/assets/images/LOGIN.jpg') no-repeat center center fixed ;
+  background-size: cover;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Toolbar */
-.mat-toolbar {
+
+.navbar-header {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
-  width: 100%;
+  padding: 0 16px;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.toolbar-title {
-  font-size: 1.2rem;
-  font-weight: bold;
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar-logo {
+  height: 52px;
+  max-height: 52px;
+  transition: transform 0.3s ease-in-out;
+}
+.navbar-logo:hover {
+  transform: scale(1.05);
 }
 
 .spacer {
   flex: 1;
 }
 
-/* La zone dynamique prend tout l'espace disponible */
+.navbar-links a {
+  margin-left: 16px;
+  font-weight: 500;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+  padding: 6px 10px;
+}
+
+.navbar-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-links a.active-link {
+  background-color: #2196f3;
+  color: black;
+  font-weight: bold;
+}
+
+
 .main-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 16px;
+  flex: 1;
+  padding: 24px;
   width: 100%;
   box-sizing: border-box;
 }
 
-/* Mobile : Sidebar cachée par défaut */
+
+.app-footer {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ccc;
+  padding: 16px 24px;
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+
+.menu-button {
+  display: none;
+  color: white;
+}
+
+
 @media (max-width: 768px) {
   .menu-button {
     display: block;
   }
 
-  .sidenav {
-    width: auto;
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 12px;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navbar-links.open {
+    display: flex;
+  }
+
+  .navbar-links a {
+    width: 100%;
+    margin: 8px 0;
   }
 }
-
-
-/* Ajuster l'alignement de l'icône et du texte dans mat-list-item */
-.mat-list-item {
-  display: flex;
-  align-items: center;  /* Centre verticalement l'icône et le texte */
-}
-
-.mat-icon {
-  margin-right: 8px; /* Espace entre l'icône et le texte */
-}
-
-.active-link {
-  background-color: hsl(210, 96%, 72%); /* Bleu adapté au thème finance */
-  color: white; /* Texte en blanc pour bien contraster */
-  border-radius: 5px; /* Arrondi léger pour l'esthétique */
-}
-
-
-
-/* .green-gradient-toolbar {
-  background: linear-gradient(45deg, #00FF00, #00AA00);
-  color: black;
-} */
-
-/* .green-gradient-toolbar {
-  background: #64FFDA;
-  color: black;
-}
-
-.green-gradient-sidebar {
-  background-color: #64FFDA; 
-  color: white;
-
-} */
