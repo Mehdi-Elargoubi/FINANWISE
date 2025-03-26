@@ -9,6 +9,9 @@ import { Auth, onAuthStateChanged } from '@angular/fire/auth';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   
   /** Indique si l'écran est en mode mobile (true si < 768px) */
   isMobile: boolean = window.innerWidth < 768;
@@ -39,9 +42,23 @@ export class AppComponent {
     });
   }
 
-  /** Écoute les changements de taille de la fenêtre et met à jour `isMobile` */
+  
   @HostListener('window:resize', ['$event'])
   checkScreenSize() {
     this.isMobile = window.innerWidth < 768;
   }
+  currentYear: number = new Date().getFullYear();
+
+  isMenuOpen = false;
+
+toggleMenu() {
+  this.isMenuOpen = !this.isMenuOpen;
+}
+
+closeMenu() {
+  this.isMenuOpen = false;
+}
+
+
+
 }

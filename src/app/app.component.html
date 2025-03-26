@@ -1,75 +1,34 @@
 <div class="app-container">
-  <!-- Conteneur principal -->
-  <mat-sidenav-container class="sidenav-container" color>
+  <mat-toolbar color="primary" class="navbar-header">
+    <div class="logo-title">
+      <img src="assets/images/LOGO.png" alt="Finanwise Logo" class="navbar-logo">
+    </div>
+
+    <span class="spacer"></span>
+
     
-    <!-- Sidebar (fixe sur PC, cachée sur mobile) -->
-     
-    <mat-sidenav 
-      #sidenav 
-      [mode]="isMobile ? 'over' : 'side'" 
-      [opened]="!isMobile"
-      class="sidenav green-gradient-sidebar"
-      color="primary"
-      >
-      
-      <!-- Logo Sidebar -->
-      <div class="sidebar-header">
-        <img src="assets/images/LOGO.png" alt="Finanwise Logo" class="sidebar-logo">
-      </div>
+    <button mat-icon-button class="menu-button" (click)="toggleMenu()" aria-label="Toggle menu">
+      <mat-icon>{{ isMenuOpen ? 'close' : 'menu' }}</mat-icon>
+    </button>
 
-      <!-- Navigation -->
-      <mat-nav-list>
-        <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">
-          <mat-icon>dashboard</mat-icon>
-          <span>Dashboard</span>
-        </a>
-        <ng-container *ngIf="isLoggedIn()">
-          <a mat-list-item routerLink="/stockRecomendation" routerLinkActive="active-link">
-            <mat-icon>trending_up</mat-icon>
-            <span>Recommandations</span>
-          </a>
-          <a mat-list-item routerLink="/Stock-search" routerLinkActive="active-link">
-            <mat-icon>help</mat-icon>
-            <span>Symboles</span>
-          </a>
-          <a mat-list-item routerLink="/exchange-rates" routerLinkActive="active-link">
-            <mat-icon>currency_exchange</mat-icon>
-            <span>Taux de Change</span>
-          </a>
-          <a mat-list-item routerLink="/stock-history" routerLinkActive="active-link">
-            <mat-icon>history</mat-icon>
-            <span>Historique</span>
-          </a>
-        </ng-container>
-      </mat-nav-list>
-    </mat-sidenav>
+    
+    <nav class="navbar-links" [ngClass]="{ 'open': isMenuOpen }" *ngIf="isLoggedIn()">
+      <a mat-button routerLink="/dashboard" routerLinkActive="active-link" (click)="closeMenu()">Dashboard</a>
+      <a mat-button routerLink="/stockRecomendation" routerLinkActive="active-link" (click)="closeMenu()">Recommandations</a>
+      <a mat-button routerLink="/Stock-search" routerLinkActive="active-link" (click)="closeMenu()">Symboles</a>
+      <a mat-button routerLink="/exchange-rates" routerLinkActive="active-link" (click)="closeMenu()">Taux de Change</a>
+      <a mat-button routerLink="/stock-history" routerLinkActive="active-link" (click)="closeMenu()">Historique</a>
+      <a mat-button (click)="logout(); closeMenu()">
+        <mat-icon>exit_to_app</mat-icon> Déconnexion
+      </a>
+    </nav>
+  </mat-toolbar>
 
-    <!-- Contenu principal -->
-    <mat-sidenav-content class="content">
-      
-      <!-- Toolbar -->
-      <mat-toolbar color="primary" class="green-gradient-toolbar">
-        <mat-toolbar-row>
-          <!-- Bouton menu pour mobile -->
-          <button mat-icon-button (click)="sidenav.toggle()" class="menu-button" *ngIf="isMobile">
-            <mat-icon>menu</mat-icon>
-          </button>
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
 
-          <span class="toolbar-title">Finanwise</span>
-          <span class="spacer"></span>
-
-          <!-- Déconnexion toujours visible dans le toolbar -->
-          <button mat-button (click)="logout()" *ngIf="isLoggedIn()">
-            <mat-icon>exit_to_app</mat-icon> Déconnexion
-          </button>
-        </mat-toolbar-row>
-      </mat-toolbar>
-
-      <!-- Zone dynamique des pages -->
-      <div class="main-content">
-        <router-outlet></router-outlet>
-      </div>
-
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+  <footer class="app-footer">
+    <span>© {{ currentYear }} Finanwise. Tous droits réservés.</span>
+  </footer>
 </div>

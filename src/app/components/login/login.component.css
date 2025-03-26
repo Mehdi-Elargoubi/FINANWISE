@@ -1,110 +1,130 @@
+
 .register-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f4f6f8;
-  }
-  
-  .role-switch {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .role-switch button {
-    padding: 10px 20px;
-    border: none;
-    background: #e0e0e0;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .role-switch button.active {
-    background: #6c3cc9;
-    color: white;
-  }
-  
+  height: 100vh;
+  width: 100%;
+  background: url('/assets/images/LOGIN.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+
+.register-card {
+  width: 100%;
+  max-width: 420px;
+  padding: 30px 25px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  color: #ffffff;
+  text-align: center;
+}
+
+
+mat-card-title.center {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+
+mat-label {
+  color: #000000 !important;
+  font-weight: 500;
+}
+
+
+input.mat-input-element {
+  color: #000000; 
+}
+
+input::placeholder {
+  color: #000000; 
+  opacity: 0.8;
+}
+
+
+mat-error {
+  color: #ff6b6b !important;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+
+.login-button {
+  width: 100%;
+  background-color: #00ffab;
+  color: black;
+  font-size: 16px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #00d18c;
+}
+
+
+.forgot-password {
+  display: block;
+  margin-top: 10px;
+  color: #00ffab;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.forgot-password:hover,
+.register-link a:hover {
+  text-decoration: underline;
+}
+
+.register-link {
+  font-size: 14px;
+  margin-top: 15px;
+  color: white;
+}
+
+.register-link a {
+  color: #00ffab;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+
+.full-width {
+  width: 100%;
+  color: black;
+}
+
+.mat-form-field-infix {
+  background-color: rgba(255, 255, 255, 0.9); 
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: black;
+}
+.center{
+  color: #00d18c; 
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+}
+mat-card-header {
+  justify-content: center; 
+}
+
+
+
+@media (max-width: 480px) {
   .register-card {
-    width: 400px;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    padding: 20px 15px;
   }
-  
-  .title {
-    color: #6c3cc9;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .subtitle {
-    font-size: 14px;
-    color: gray;
-  }
-  
-  
-  .google-signin img {
-    width: 20px;
-  }
-  
-  .divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0;
-    font-size: 14px;
-    color: gray;
-  }
-  
-  .signin-label {
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .full-width {
-    width: 100%;
-  }
-  
-  .extra-options {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  .forgot-password {
-    color: #6c3cc9;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .login-button {
-    width: 100%;
-    background: #6c3cc9;
-    color: white;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .register-link {
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  .register-link a {
-    color: #6c3cc9;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  
-  .example-container mat-form-field + mat-form-field {
-    margin-left: 8px;
-  }
-  
+}

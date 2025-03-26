@@ -1,7 +1,7 @@
 <div class="exchange-rates-container">
   <h1 class="styled-title">Conversion Devises</h1>
 
-  <!-- Card pour les taux de change et les résultats -->
+  
   <mat-card>
     <mat-card-header>
       <mat-card-title class="styled-subtitle">Taux de change en direct</mat-card-title>
@@ -41,7 +41,7 @@
     <mat-card-content *ngIf="filteredRates" class="rates-container">
       <mat-card-title class="styled-subtitle">Taux de change pour {{ exchangeRateForm.get('baseCode')?.value }}</mat-card-title>
       <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
-        <!-- Colonne Devise -->
+        
         <ng-container matColumnDef="currency">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Devise </th>
           <td mat-cell *matCellDef="let element">
@@ -50,7 +50,7 @@
           </td>
         </ng-container>
 
-        <!-- Colonne Taux -->
+        
         <ng-container matColumnDef="rate">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Taux </th>
           <td mat-cell *matCellDef="let element"> {{ element.value }} </td>
@@ -63,7 +63,7 @@
     </mat-card-content>
   </mat-card>
 
-  <!-- Card pour la sélection des codes de base et la matrice -->
+  
   <mat-card>
     <mat-card-header>
       <mat-card-title class="styled-subtitle">Sélection des Devises pour la Matrice</mat-card-title>
