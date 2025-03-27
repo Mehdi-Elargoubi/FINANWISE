@@ -8,7 +8,6 @@ import { Chart } from 'chart.js/auto';
   templateUrl: './stock-history.component.html',
   styleUrls: ['./stock-history.component.css']
 })
-
 export class StockHistoryComponent implements OnInit {
   stockForm: FormGroup;
   stockChart: any;
@@ -19,7 +18,7 @@ export class StockHistoryComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   fetchStockData() {
     if (this.stockForm.valid) {
@@ -42,29 +41,29 @@ export class StockHistoryComponent implements OnInit {
     }
 
     const ctx = document.getElementById('stockChart') as HTMLCanvasElement;
-    this.stockChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels,
-        datasets: [{
-          label: 'Prix de clôture',
-          data: prices,
-          borderColor: 'green',
-          fill: true
-        }]
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Historique des prix de stock ' + this.stockForm.value.symbol,
-            font: {
-              size: 16
-            }
-          }
+this.stockChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels,
+    datasets: [{
+      label: 'Prix de clôture',
+      data: prices,
+      borderColor: 'blue',
+      fill: false
+    }]
+  },
+  options: {
+    plugins: {
+      title: {
+        display: true,
+        text: 'Historique des prix de stock '+ this.stockForm.value.symbol, // Ajoute un titre ici
+        font: {
+          size: 16
         }
       }
-    });
+    }
+  }
+});
 
   }
 }

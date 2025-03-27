@@ -10,6 +10,7 @@ import { StockRecommendationComponent } from './components/stock-recommendation/
 import { StockSearchComponent } from './components/stock-search/stock-search.component';
 import { ExchangeRatesComponent } from './components/exchange-rates/exchange-rates.component';
 import { StockHistoryComponent } from './components/stock-history/stock-history.component';
+import { ArticleListComponent } from './components/article-list/article-list.component';
 
 
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
@@ -18,7 +19,7 @@ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const routes: Routes = [
   { path: 'login', component: LoginComponent, ...canActivate(redirectLoggedInToDashboard) },
   { path: 'register', component: RegisterComponent, ...canActivate(redirectLoggedInToDashboard) },
-  { path: 'dashboard', component: DashboardComponent,...canActivate(redirectUnauthorizedToLogin) },
+  { path: 'dashboard', component: ArticleListComponent,...canActivate(redirectUnauthorizedToLogin) },
   { path: 'firestore-form', component: FirestoreFormComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'stockRecomendation', component: StockRecommendationComponent, ...canActivate(redirectUnauthorizedToLogin) },
   { path: 'Stock-search', component: StockSearchComponent, ...canActivate(redirectUnauthorizedToLogin) },

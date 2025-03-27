@@ -35,6 +35,8 @@ import { ExchangeRatesComponent } from './components/exchange-rates/exchange-rat
 import { MatSelectModule } from '@angular/material/select';
 import { MatSortModule } from '@angular/material/sort';
 import { StockHistoryComponent } from './components/stock-history/stock-history.component';
+import { ArticleListComponent } from './components/article-list/article-list.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';  
 
 
 
@@ -52,6 +54,8 @@ import { StockHistoryComponent } from './components/stock-history/stock-history.
     StockSearchComponent,
     ExchangeRatesComponent,
     StockHistoryComponent,
+    ArticleListComponent,
+
 
   ],
   imports: [
@@ -79,8 +83,8 @@ import { StockHistoryComponent } from './components/stock-history/stock-history.
     CommonModule,
     MatSelectModule,
     MatCardModule,
-    MatSortModule
-    
+    MatSortModule,
+    MatProgressSpinnerModule,
     
 
   ],
