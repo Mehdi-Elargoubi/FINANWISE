@@ -7,13 +7,16 @@ import { Stock } from '../models/Stock';  // Importez l'interface Stock
 @Injectable({
   providedIn: 'root',
 })
+
 export class StockSearchService {
   private apiUrl = 'https://financialmodelingprep.com/api/v3/search';
 
   constructor(private http: HttpClient) {}
 
   searchStocks(query: string): Observable<Stock[]> {
-    const params = new HttpParams().set('query', query).set('apikey', 'HVBZPTIGy334KMwOsAy2dzqyeHRYX6rL');
-    return this.http.get<Stock[]>(this.apiUrl, { params });  // Précisez que la réponse est un tableau de Stock
+    const params = new HttpParams()
+    .set('query', query)
+    .set('apikey', 'HVBZPTIGy334KMwOsAy2dzqyeHRYX6rL');
+    return this.http.get<Stock[]>(this.apiUrl, { params });
   }
 }

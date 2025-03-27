@@ -9,12 +9,12 @@ import { Stock } from '../../models/Stock';  // Importez l'interface Stock
   styleUrls: ['./stock-search.component.css']
 })
 export class StockSearchComponent {
-  query: string = ''; // Variable pour le champ de recherche
-  stocks: Stock[] = []; // Liste des stocks récupérés
-  isLoading: boolean = false; // Indicateur de chargement
-  error: string = ''; // Message d'erreur
+  query: string = ''; 
+  stocks: Stock[] = []; 
+  isLoading: boolean = false;
+  error: string = ''; 
 
-  constructor(private stockSearchService: StockSearchService) {}
+  constructor(private stockSearchService: StockSearchService) { }
 
   onSearch(): void {
     if (this.query.length < 2) {
@@ -24,7 +24,7 @@ export class StockSearchComponent {
     this.isLoading = true;
     this.error = '';
     this.stockSearchService.searchStocks(this.query).subscribe(
-      (data: Stock[]) => {  // Spécifiez que 'data' est un tableau de Stock
+      (data: Stock[]) => {  
         this.stocks = data;
         this.isLoading = false;
       },

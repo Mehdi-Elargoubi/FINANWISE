@@ -1,7 +1,7 @@
 export interface Recommendation {
     buy: number;
     hold: number;
-    period: string;  // Format YYYY-MM-DD
+    period: string;
     sell: number;
     strongBuy: number;
     strongSell: number;

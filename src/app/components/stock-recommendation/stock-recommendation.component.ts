@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FinnhubService } from '../../services/finnhub.service';
-
 import { Recommendation } from '../../models/recommendation';
 
 @Component({
@@ -9,6 +8,7 @@ import { Recommendation } from '../../models/recommendation';
   templateUrl: './stock-recommendation.component.html',
   styleUrls: ['./stock-recommendation.component.css']
 })
+
 export class StockRecommendationComponent {
   recommendationForm: FormGroup;
   recommendations: Recommendation[] = [];
@@ -18,11 +18,10 @@ export class StockRecommendationComponent {
   constructor(private finnhubService: FinnhubService) {
     this.recommendationForm = new FormGroup({
       symbol: new FormControl('', [Validators.required]),
-      budget: new FormControl('', [Validators.required, Validators.min(1)])
+      budget: new FormControl('', [Validators.required, Validators.min(10)])
     });
   }
 
-  // Fonction pour récupérer les recommandations et calculer le nombre d'actions
   fetchRecommendations() {
     if (this.recommendationForm.invalid) {
       return;
@@ -33,18 +32,19 @@ export class StockRecommendationComponent {
 
     this.finnhubService.getRecommendation(symbol).subscribe((data: Recommendation[]) => {
       this.recommendations = data;
-        if (data.length > 0) {
-          const latestRecommendation = data[0]; // On prend la plus récente
-          const date = new Date(latestRecommendation.period); // Crée un objet Date à partir du string
-          const day = date.getDate().toString().padStart(2, '0'); // Obtient le jour, en ajoutant un zéro si nécessaire
-          const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Obtient le mois (attention, les mois commencent à 0)
-          const year = date.getFullYear(); // Obtient l'année
-          latestRecommendation.period = `${day}/${month}/${year}`;
-          const { hold, buy, sell } = latestRecommendation;
+      if (data.length > 0) {
+        const latestRecommendation = data[0];
+        const date = new Date(latestRecommendation.period); 
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear();
+        
+        latestRecommendation.period = `${day}/${month}/${year}`;
+        const { hold, buy, sell } = latestRecommendation;
 
         const total = hold + buy + sell;
-        let risk: number | null = null;
-        let investir: number | null = null;
+        let risk: number | null;
+        let investir: number | null;
 
         if (hold === Math.max(hold, buy, sell)) {
           risk = hold / total;
@@ -56,7 +56,7 @@ export class StockRecommendationComponent {
           investir = (buy / total) * budget;
           this.decision = `Il est recommandé d'acheter des actions de ce stock. Avec votre budget, vous devriez investir environ ${investir.toFixed(2)} €.`;
         }
-        
+
       }
     });
   }
