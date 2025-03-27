@@ -1,67 +1,61 @@
-/* 📦 Carte principale avec effet glass */
 mat-card {
   max-width: 800px;
   margin: 48px auto;
   padding: 32px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
   border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 255, 171, 0.15);
   color: #ffffff;
   animation: fadeIn 0.8s ease-in-out;
 }
 
-/* ✍️ Titre */
 mat-card-title {
   font-size: 24px;
   font-weight: bold;
   color: #ffffff;
   margin-bottom: 24px;
+  text-shadow: 0 0 6px rgba(0, 255, 171, 0.3);
 }
 
-/* Champ de saisie */
 mat-form-field {
   width: 100%;
   margin-bottom: 24px;
 }
 
 .mat-form-field-infix {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.12);
   border-radius: 8px;
   color: white;
 }
 
-/* 🔍 Bouton stylé */
-button[type="submit"] {
-  background: linear-gradient(to right, #1e88e5, #42a5f5);
-  color: white;
+.green-button {
+  background: linear-gradient(to right, #00ffab, #00c58e);
+  color: black;
   font-weight: bold;
   font-size: 16px;
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: 10px 24px;
+  border-radius: 10px;
   border: none;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 15px rgba(66, 165, 245, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 255, 171, 0.3);
+  transition: all 0.3s ease;
 }
 
-button[type="submit"]:hover {
-  background: linear-gradient(to right, #1565c0, #1e88e5);
+.green-button:hover {
+  background: linear-gradient(to right, #00c58e, #00ffab);
   transform: translateY(-2px);
 }
 
-/* 📊 Explication du graphique */
 .chart-explanation {
   margin-top: 30px;
   font-size: 14px;
   color: #dddddd;
   text-align: left;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: 16px;
 }
 
-/* 🎞️ Animation fade-in */
 @keyframes fadeIn {
   from {
     opacity: 0;
