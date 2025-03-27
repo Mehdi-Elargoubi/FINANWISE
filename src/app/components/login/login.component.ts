@@ -2,11 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/cor
 import { Auth, onAuthStateChanged, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { merge } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -15,7 +11,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './login.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class LoginComponent {
   private auth = inject(Auth);
   private authService = inject(AuthService);
@@ -25,12 +20,6 @@ export class LoginComponent {
   errorMessage = signal('');
   hide = signal(true);
   private snackBar = inject(MatSnackBar);
-
-  constructor() {
-    merge(this.email.statusChanges, this.email.valueChanges)
-      .pipe(takeUntilDestroyed())
-      .subscribe(() => this.updateErrorMessage());
-  }
 
   ngOnInit(): void {
     onAuthStateChanged(this.auth, (user) => {
@@ -43,6 +32,23 @@ export class LoginComponent {
   }
 
   login(): void {
+    // Valider le champ email avant de tenter la connexion
+    if (this.email.invalid) {
+      if (this.email.hasError('required')) {
+        this.snackBar.open('Vous devez saisir une valeur', 'Fermer', {
+          duration: 5000,
+          verticalPosition: 'top',
+        });
+      } else if (this.email.hasError('email')) {
+        this.snackBar.open('Email non valide', 'Fermer', {
+          duration: 5000,
+          verticalPosition: 'top',
+        });
+      }
+      return; // Arrêter l'exécution si le champ email est invalide
+    }
+
+    // Tenter la connexion si l'email est valide
     signInWithEmailAndPassword(this.auth, this.email.value!, this.password)
       .then((userCredential) => {
         if (userCredential.user.emailVerified) {
@@ -57,35 +63,17 @@ export class LoginComponent {
       })
       .catch((error) => {
         console.error('Erreur lors de la connexion:', error);
-        this.snackBar.open('Erreur lors de connexion - vérifier vos infos ', 'Fermer', {
+        this.snackBar.open('Erreur lors de connexion - Vérifier vos informations ', 'Fermer', {
           duration: 5000,
           verticalPosition: 'top',
         });
       });
   }
 
-  updateErrorMessage(): void {
-    if (this.email.hasError('required')) {
-      this.snackBar.open('Vous devez saisir une valeur', 'Fermer', {
-        duration: 5000,
-        verticalPosition: 'top',
-      });
-    } else if (this.email.hasError('email')) {
-      this.snackBar.open('Email non valide', 'Fermer', {
-        duration: 5000,
-        verticalPosition: 'top',
-      });
-    } else {
-      this.errorMessage.set('');
-    }
-  }
-
   toggleHide(event: MouseEvent): void {
-    event.preventDefault(); 
+    event.preventDefault();
     event.stopPropagation();
     this.hide.set(!this.hide());
   }
-
-
 }
 

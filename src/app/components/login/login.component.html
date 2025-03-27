@@ -11,9 +11,7 @@
           <mat-label>Entrer votre email</mat-label>
           <input
             matInput
-            
             [formControl]="email"
-            (blur)="updateErrorMessage()"
             required
           />
           <mat-error *ngIf="email.invalid">{{ errorMessage() }}</mat-error>
