@@ -1,8 +1,7 @@
-// stock-search.service.ts
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Stock } from '../models/Stock';  // Importez l'interface Stock
+import { Stock } from '../models/Stock';  
 
 @Injectable({
   providedIn: 'root',

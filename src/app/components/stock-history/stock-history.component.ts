@@ -49,15 +49,15 @@ export class StockHistoryComponent implements OnInit {
         datasets: [{
           label: 'Prix de clôture',
           data: prices,
-          borderColor: 'blue',
-          fill: false
+          borderColor: 'green',
+          fill: true
         }]
       },
       options: {
         plugins: {
           title: {
             display: true,
-            text: 'Historique des prix de stock ' + this.stockForm.value.symbol, // Ajoute un titre ici
+            text: 'Historique des prix de stock ' + this.stockForm.value.symbol,
             font: {
               size: 16
             }
