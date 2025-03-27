@@ -1,7 +1,7 @@
 <div class="stock-recommendation-container">
   <!-- Formulaire -->
   <form (ngSubmit)="fetchRecommendations()" [formGroup]="recommendationForm" class="recommendation-form">
-    <h2>🔍 Trouver des Recommandations</h2>
+    <h2>🔍 Trouver des <span class="highlight">Recommandations</span></h2>
 
     <mat-form-field appearance="fill" class="full-width">
       <mat-label>Symbole</mat-label>
@@ -19,24 +19,20 @@
   </form>
 
   <!-- Affichage des recommandations -->
-  <div *ngIf="recommendations.length > 0">
-    <h3>📊 Recommandations pour {{recommendations[0].symbol}}</h3>
-    
+  <div *ngIf="recommendations.length > 0" class="result-section">
+    <h3>📊 Recommandations pour <span class="symbol">{{recommendations[0].symbol}}</span></h3>
+
     <div class="recommendation-container">
       <mat-card class="stock-card">
-        <mat-card-header>
-          <mat-card-title>Mise à jour : {{ recommendations[0].period }}</mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-         <!--  <p><strong>💹 Strong Buy :</strong> {{ recommendation.strongBuy }}</p>-->
-          
-          <p><strong>{{ decision }}</strong> </p>
-          <p><strong>{{ajout}}</strong> </p>
-          <p><strong>📈 Buy :</strong> {{ recommendations[0].buy }}</p>
-          <p><strong>🤝 Hold :</strong> {{ recommendations[0].hold }}</p>
-          <p><strong>📉 Sell :</strong> {{ recommendations[0].sell }}</p>
-          <!--<p><strong>⛔ Strong Sell :</strong> {{ recommendation.strongSell }}</p>-->
-        </mat-card-content>
+        <mat-card-title>🕒 Mise à jour : {{ recommendations[0].period }}</mat-card-title>
+        <p class="highlight-text">{{ decision }}</p>
+        <p class="highlight-ajout"><em>{{ ajout }}</em></p>
+
+        <div class="stats">
+          <div class="stat">📈 <strong>Buy :</strong> {{ recommendations[0].buy }}</div>
+          <div class="stat">🤝 <strong>Hold :</strong> {{ recommendations[0].hold }}</div>
+          <div class="stat">📉 <strong>Sell :</strong> {{ recommendations[0].sell }}</div>
+        </div>
       </mat-card>
     </div>
   </div>

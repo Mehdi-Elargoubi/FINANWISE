@@ -23,7 +23,7 @@ export class ForgotPasswordComponent {
     if (this.email.valid) {
       sendPasswordResetEmail(this.auth, this.email.value!)
         .then(() => {
-          this.snackBar.open('Email de réinitialisation de mdp a été envoyé dans boîte de mail - Vous serez redirigé vers la page de connexion dans quelques secondes...', 'Fermer', {
+          this.snackBar.open('Un email de rénitialisation de votre mot de passe vous a été envoyer - Vous serez redirigé vers la page de connexion dans quelques secondes...', 'Fermer', {
             duration: 5000,
             verticalPosition: 'top',
           });
@@ -33,13 +33,13 @@ export class ForgotPasswordComponent {
         })
         .catch((error) => {
           console.error('Erreur dans l envoi du  mail de réinitialisation :', error);
-          this.snackBar.open('Erreur dans l envoi du mail de réinitialisation - vérifier l @ email', 'Fermer', {
+          this.snackBar.open('Erreur dans l envoi du mail de réinitialisation - vérifier votre email', 'Fermer', {
             duration: 5000,
             verticalPosition: 'top',
           });
         });
     } else {
-      this.snackBar.open('Entrer une @ mail valide', 'Fermer', {
+      this.snackBar.open('Entrer un email valide', 'Fermer', {
         duration: 5000,
         verticalPosition: 'top',
       });

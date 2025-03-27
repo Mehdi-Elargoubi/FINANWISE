@@ -1,4 +1,3 @@
-
 .register-container {
   height: 100vh;
   width: 100%;
@@ -9,7 +8,6 @@
   justify-content: center;
   padding: 20px;
 }
-
 
 .register-card {
   width: 100%;
@@ -24,37 +22,33 @@
   text-align: center;
 }
 
-
 mat-card-title.center {
   text-align: center;
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 16px;
+  color: #00d18c;
 }
-
 
 mat-label {
   color: #000000 !important;
   font-weight: 500;
 }
 
-
 input.mat-input-element {
-  color: #000000; 
+  color: #000000;
 }
 
 input::placeholder {
-  color: #000000; 
+  color: #000000;
   opacity: 0.8;
 }
-
 
 mat-error {
   color: #ff6b6b !important;
   font-size: 13px;
   margin-top: 4px;
 }
-
 
 .login-button {
   width: 100%;
@@ -72,7 +66,6 @@ mat-error {
 .login-button:hover {
   background-color: #00d18c;
 }
-
 
 .forgot-password {
   display: block;
@@ -99,29 +92,26 @@ mat-error {
   text-decoration: none;
 }
 
-
 .full-width {
   width: 100%;
   color: black;
 }
 
 .mat-form-field-infix {
-  background-color: rgba(255, 255, 255, 0.9); 
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
   padding: 8px 12px;
   color: black;
 }
-.center{
-  color: #00d18c; 
-  font-weight: bold;
-  font-size: 20px;
-  text-align: center;
-}
+
 mat-card-header {
-  justify-content: center; 
+  justify-content: center;
 }
 
-
+.toggle-eye {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.7);
+}
 
 @media (max-width: 480px) {
   .register-card {

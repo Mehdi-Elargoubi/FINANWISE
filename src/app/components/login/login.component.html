@@ -8,10 +8,10 @@
     <mat-card-content>
       <form (ngSubmit)="login()" #loginForm="ngForm">
         <mat-form-field appearance="fill" class="full-width">
-          <mat-label>Enter your email</mat-label>
+          <mat-label>Entrer votre email</mat-label>
           <input
             matInput
-            placeholder="pat@example.com"
+            
             [formControl]="email"
             (blur)="updateErrorMessage()"
             required
@@ -20,7 +20,7 @@
         </mat-form-field>
         
         <mat-form-field appearance="fill" class="full-width">
-          <mat-label>Enter your password</mat-label>
+          <mat-label>Entrer le mot de passe</mat-label>
           <input matInput [type]="hide() ? 'password' : 'text'" [(ngModel)]="password" name="password" required autocomplete="current-password" />
           <button
             mat-icon-button
@@ -29,7 +29,7 @@
             [attr.aria-label]="'Hide password'"
             [attr.aria-pressed]="hide()"
           >
-            <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+      
           </button>
         </mat-form-field>
   
@@ -46,7 +46,7 @@
       </form>
 
       <p class="register-link">
-        Vous n'avez pas de compte ? <a routerLink="/register">Créer un</a>
+        Vous n'avez pas de compte ? <a routerLink="/register">Inscription</a>
       </p>
 
       <p *ngIf="errorMessage()">{{ errorMessage() }}</p>
