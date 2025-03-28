@@ -8,11 +8,12 @@
   -webkit-backdrop-filter: blur(10px);
   color: white;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de la transition */
 }
 
 .article-card:hover {
-  transform: translateY(-4px);
+  transform: scale(1.05); /* Agrandir légèrement la carte */
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4); /* Accentuer l'ombre */
 }
 
 .image-container {
@@ -109,4 +110,17 @@
   .summary-content {
     font-size: 14px;
   }
+}
+
+/* Conteneur pour les cartes */
+.articles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Deux colonnes */
+  gap: 24px; /* Espacement entre les cartes */
+  padding: 16px;
+}
+
+/* Ajuster les marges des cartes */
+.article-card {
+  margin: 0; /* Supprimer les marges individuelles */
 }

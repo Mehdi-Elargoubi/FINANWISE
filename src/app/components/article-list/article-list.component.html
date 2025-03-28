@@ -1,27 +1,30 @@
 <div *ngIf="isLoading" class="loading-container">
   <mat-spinner diameter="50"></mat-spinner>
 </div>
-<mat-card *ngFor="let article of articles" class="article-card">
-  <div class="image-container" *ngIf="article.image">
-    <img mat-card-image [src]="article.image" alt="Image de l'article" >
-    
-    <div class="overlay">
-      <p class="article-title">{{ article.headline }}</p>
+
+<!-- Conteneur pour les cartes -->
+<div class="articles-container">
+  <mat-card *ngFor="let article of articles" class="article-card">
+    <div class="image-container" *ngIf="article.image">
+      <img mat-card-image [src]="article.image" alt="Image de l'article">
+      <div class="overlay">
+        <p class="article-title">{{ article.headline }}</p>
+      </div>
     </div>
-  </div>
 
-  <mat-card-actions class="card-actions">
-    <button mat-button class="action-button" (click)="toggleExpand(article)">
-      EXPLORE
-      <mat-icon>{{ article.expanded ? 'expand_less' : 'expand_more' }}</mat-icon>
-    </button>
+    <mat-card-actions class="card-actions">
+      <button mat-button class="action-button" (click)="toggleExpand(article)">
+        EXPLORE
+        <mat-icon>{{ article.expanded ? 'expand_less' : 'expand_more' }}</mat-icon>
+      </button>
 
-    <a mat-button class="read-more" [href]="article.url" target="_blank">
-      LIRE PLUS
-    </a>
-  </mat-card-actions>
+      <a mat-button class="read-more" [href]="article.url" target="_blank">
+        LIRE PLUS
+      </a>
+    </mat-card-actions>
 
-  <div class="summary-content" *ngIf="article.expanded">
-    <p>{{ article.summary }}</p>
-  </div>
-</mat-card>
+    <div class="summary-content" *ngIf="article.expanded">
+      <p>{{ article.summary }}</p>
+    </div>
+  </mat-card>
+</div>
