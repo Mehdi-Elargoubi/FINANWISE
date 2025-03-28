@@ -78,6 +78,64 @@ Pour démarrer, assurez-vous d’avoir installé :
 
 ---
 
+## Déploiement 🚀
+
+Voici les étapes pour déployer l'application **Finanwise** en production :
+
+### 1. Préparer le projet pour la production 🛠️
+
+Construisez le projet Angular en mode production :
+
+```bash
+ng build --prod
+```
+
+Cela génère les fichiers de production dans le dossier `dist/finanwise`.
+
+### 2. Hébergement avec Firebase 🌍
+
+#### Installer Firebase CLI
+
+Si ce n'est pas déjà fait, installez l'outil Firebase CLI globalement :
+
+```bash
+npm install -g firebase-tools
+```
+
+#### Se connecter à Firebase
+
+Connectez-vous à votre compte Firebase :
+
+```bash
+firebase login
+```
+
+#### Initialiser Firebase dans le projet
+
+Initialisez Firebase Hosting dans votre projet :
+
+```bash
+firebase init
+```
+
+- Sélectionnez **Hosting**.
+- Choisissez le dossier `dist/finanwise` comme répertoire public.
+- Configurez comme application à page unique (SPA) en répondant "Yes" à la question correspondante.
+
+#### Déployer sur Firebase
+
+Une fois le projet construit, déployez-le sur Firebase Hosting :
+
+```bash
+firebase deploy
+```
+
+#### Accéder à l'application
+
+Une fois le déploiement terminé, Firebase fournit une URL où votre application est hébergée. Vous pouvez y accéder directement via cette URL. 🌐
+
+---
+
 ## 📂 Structure du projet 🏗️
 
 ```
