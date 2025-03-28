@@ -11,16 +11,6 @@ export class ExchangeRateService {
 
   constructor(private http: HttpClient) {}
 
-  getExchangeRates2(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
-  }
-
-  getExchangeRates3(baseCode: string, conversionRates: string[]): Observable<any> {
-    const conversionRatesParam = conversionRates.join(',');
-    const apiUrl = `https://v6.exchangerate-api.com/v6/${this.apiKey}/latest/${baseCode}?symbols=${conversionRatesParam}`;
-    return this.http.get<any>(apiUrl);
-  }
-
   getExchangeRates(baseCode: string, conversionRates: string[]): Observable<any> {
     const conversionRatesParam = conversionRates.join(',');
     const apiUrl = `https://v6.exchangerate-api.com/v6/${this.apiKey}/latest/${baseCode}`;

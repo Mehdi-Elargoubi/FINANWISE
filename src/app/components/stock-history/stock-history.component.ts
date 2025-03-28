@@ -41,29 +41,47 @@ export class StockHistoryComponent implements OnInit {
     }
 
     const ctx = document.getElementById('stockChart') as HTMLCanvasElement;
-this.stockChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels,
-    datasets: [{
-      label: 'Prix de clôture',
-      data: prices,
-      borderColor: 'blue',
-      fill: false
-    }]
-  },
-  options: {
-    plugins: {
-      title: {
-        display: true,
-        text: 'Historique des prix de stock '+ this.stockForm.value.symbol, // Ajoute un titre ici
-        font: {
-          size: 16
+    this.stockChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels,
+        datasets: [{
+          label: 'Prix de clôture',
+          data: prices,
+          borderColor: 'green',
+          fill: true
+        }]
+      },
+      options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Historique des prix de stock ' + this.stockForm.value.symbol, 
+            font: {
+              size: 16
+            },
+            color: 'white' 
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: 'white'
+            },
+            grid: {
+              color: 'rgba(255, 255, 255, 0.05)' 
+            }
+          },
+          y: {
+            ticks: {
+              color: 'white' 
+            },
+            grid: {
+              color: 'rgba(255, 255, 255, 0.05)' 
+            }
+          }
         }
       }
-    }
-  }
-});
-
+    });
   }
 }

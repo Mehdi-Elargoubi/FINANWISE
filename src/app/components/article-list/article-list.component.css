@@ -12,7 +12,7 @@
 }
 
 .article-card:hover {
-  transform: scale(1.05); /* Agrandir légèrement la carte */
+  transform: scale(1.09); /* Agrandir légèrement la carte */
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4); /* Accentuer l'ombre */
 }
 

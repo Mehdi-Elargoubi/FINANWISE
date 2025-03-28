@@ -22,7 +22,7 @@ body {
 
 .styled-subtitle {
   font-size: 1.4rem;
-  color: #64b5f6;
+  color: #2cb872;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
   text-align: left;
 }
@@ -65,7 +65,7 @@ mat-card-content {
 }
 
 .mat-form-field-label {
-  color: #90caf9 !important;
+  color: #2cb872 !important;
 }
 
 .mat-select-value-text {
@@ -74,13 +74,14 @@ mat-card-content {
 
 
 .submit-button {
-  background: linear-gradient(to right, #1e88e5, #42a5f5);
+  background: linear-gradient(to right, #2cb872, #2cb872);
   color: white;
   font-weight: bold;
   padding: 12px 24px;
   border-radius: 8px;
   transition: all 0.3s ease-in-out;
   box-shadow: 0 4px 12px rgba(66, 165, 245, 0.4);
+  margin-bottom: 27px;
 }
 
 .submit-button:hover {
@@ -102,7 +103,7 @@ table.mat-table {
 }
 
 .mat-header-cell {
-  color: #64b5f6 !important;
+  color: #2cb872 !important;
   font-weight: bold;
   text-align: center;
   font-size: 15px;
