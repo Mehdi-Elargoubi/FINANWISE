@@ -6,12 +6,52 @@ Finanwise est une application web intuitive qui permet d'identifier et de stocke
 
 ---
 
+## Aperçu de l'Interface 🖼️
+
+Voici quelques captures d'écran de l'interface utilisateur de **Finanwise** :
+
+- **Page de Connexion**  
+  ![Page de Connexion](screenshots/login-page.png)
+
+- **Inscription**  
+  ![Page d'Inscription](screenshots/register-page.png)
+
+- **Réinitialisation du Mot de Passe**  
+  ![Réinitialisation du Mot de Passe](screenshots/reset-password-page.png)
+
+- **Taux de Change en Direct**  
+  ![Taux de Change en Direct](screenshots/exchange-rate-direct.png)
+
+- **Matrice des Taux de Change**  
+  ![Matrice des Taux de Change](screenshots/exchange-rate-matrix.png)
+
+- **Recherche de Symboles Boursiers**  
+  ![Recherche de Symboles](screenshots/stock-search.png)
+
+- **Historique des Actions**  
+  ![Historique des Actions](screenshots/stock-history.png)
+
+- **Fil d'Actualités Financières**  
+  ![Fil d'Actualités](screenshots/news-feed.png)
+
+- **Recommandations d'Investissement**  
+  ![Recommandations](screenshots/recommendations.png)
+
+---
+
+## Lien de l'Application 🌐
+
+Vous pouvez accéder à l'application Finanwise ici : [Finanwise](https://finanwise-c4784.web.app/login)
+
+---
+
 ## 📜 Table des Matières
 
 - [Fonctionnalités](#fonctionnalit%C3%A9s)
 - [Prérequis](#pr%C3%A9requis)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
+- [Déploiement](#d%C3%A9ploiement)
 - [Structure du projet](#structure-du-projet)
 - [Technologies utilisées](#technologies-utilis%C3%A9es)
 - [Contributeurs](#contributeurs)
