@@ -19,23 +19,23 @@ Voici quelques captures d'écran de l'interface utilisateur de **Finanwise** :
 - **Réinitialisation du Mot de Passe**  
   ![Réinitialisation du Mot de Passe](screenshots/reset-password-page.png)
 
+- **Fil d'Actualités Financières**  
+  ![Fil d'Actualités](screenshots/news-feed.png)
+  
+- **Recommandations d'Investissement**  
+  ![Recommandations](screenshots/recommendations.png)
+
+- **Recherche de Symboles Boursiers**  
+  ![Recherche de Symboles](screenshots/stock-search.png)
+
 - **Taux de Change en Direct**  
   ![Taux de Change en Direct](screenshots/exchange-rate-direct.png)
 
 - **Matrice des Taux de Change**  
   ![Matrice des Taux de Change](screenshots/exchange-rate-matrix.png)
 
-- **Recherche de Symboles Boursiers**  
-  ![Recherche de Symboles](screenshots/stock-search.png)
-
 - **Historique des Actions**  
   ![Historique des Actions](screenshots/stock-history.png)
-
-- **Fil d'Actualités Financières**  
-  ![Fil d'Actualités](screenshots/news-feed.png)
-
-- **Recommandations d'Investissement**  
-  ![Recommandations](screenshots/recommendations.png)
 
 ---
 
